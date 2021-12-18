@@ -11,7 +11,7 @@ bool isValidDate(Date* date) {
 
     bool isValid = true;
 
-    isValid = (date->month < 12 && date->month > 0) && (date->day > 0 && date->day <= monthLength(date));
+    isValid = (date->month <= 12 && date->month > 0) && (date->day > 0 && date->day <= monthLength(date));
 
     return isValid;
 
