@@ -22,8 +22,8 @@ int main() {
 
     if (isValidDate(date1) && isValidDate(date2)) {
 
-        printf("Days to date 1.1.0000 -> %d\n", dataToDayZero(date1));
-        printf("Days to date 1.1.0000 -> %d\n", dataToDayZero(date2));
+        printf("Days to date 1.1.0000 -> %d\n", dateToDayZero(date1));
+        printf("Days to date 1.1.0000 -> %d\n", dateToDayZero(date2));
 
 
         if(isEarlierThan(date1, date2)){
