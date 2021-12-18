@@ -44,11 +44,11 @@ int monthLength(Date* date) {
 
 }
 
-bool isEarlierThan(Date* date1, Date* date2) {
+bool isEarlierThan(Date* earlier, Date* later) {
 
     bool ret = false;
 
-    if (date1->year < date2->year) {
+    if (earlier->year < later->year) {
     
         ret = true;
     
@@ -56,9 +56,9 @@ bool isEarlierThan(Date* date1, Date* date2) {
 
     else {
 
-        if (date1->month == date2->month) {
+        if (earlier->month == later->month) {
         
-            if (date1->day < date2->day) {
+            if (earlier->day < later->day) {
             
                 ret = true;
             
@@ -66,7 +66,7 @@ bool isEarlierThan(Date* date1, Date* date2) {
         
         }
 
-        else if(date1->month < date2->month) {
+        else if(earlier->month < later->month) {
         
             ret = true;
     
