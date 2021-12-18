@@ -42,3 +42,36 @@ int monthLength(Date* date) {
     return days;
 
 }
+
+bool isEarlierThan(Date* date1, Date* date2) {
+
+    bool ret = false;
+
+    if (date1->year < date2->year) {
+    
+        ret = true;
+    
+    } 
+
+    else {
+
+        if (date1->month == date2->month) {
+        
+            if (date1->day < date2->day) {
+            
+                ret = true;
+            
+            }
+        
+        }
+
+        else if(date1->month < date2->month) {
+        
+            ret = true;
+    
+        }
+
+    }
+
+    return ret;
+}

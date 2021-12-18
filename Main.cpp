@@ -4,11 +4,11 @@
 int main() {
 
     int day, month, year;
-    printf("Input a day number: ");
+    printf("Input a day number for date1: ");
     scanf_s("%d", &day);
-    printf("Input a month number: ");
+    printf("Input a month number for date1: ");
     scanf_s("%d", &month);
-    printf("Input a year number: ");
+    printf("Input a year number for date1: ");
     scanf_s("%d", &year);
 
     Date* date = new Date();
