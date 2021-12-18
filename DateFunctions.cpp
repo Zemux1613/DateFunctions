@@ -94,3 +94,19 @@ Date* inputDate() {
 
     return date;
 }
+
+int dataToDayZero(Date* date) {
+
+    int year = date->year;
+
+    int days = (year - 1) * 365 + ((year - 1) / 4 - (year - 1) / 100) + (year - 1) / 400;
+
+    for (int i = 1; i < date->month - 1; i++) {
+
+        days += monthLength(date);
+
+    }
+
+    return days;
+
+}
