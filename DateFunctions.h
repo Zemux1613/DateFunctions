@@ -14,3 +14,5 @@ int dateToDayZero(Date* date);
 int dateDifference(Date* later, Date* earlier);
 Date* dateAfterDays(Date* date, int days);
 Date* beforeAfterDays(Date* date, int days);
+int getJulianMonthNumber(Date* date);
+const char* getWeekDay(Date* date);

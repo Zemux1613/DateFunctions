@@ -38,6 +38,8 @@ int main() {
 
         printf("%d.%d.%d the date after %d %s!\n", date1->day, date1->month, date1->year, days, (days != 1 ? "days" : "day"));
 
+        printf("%s\n", getWeekDay(date1));
+
         if(isEarlierThan(date1, date2)){
 
             printf("%d.%d.%d is earlier than %d.%d.%d\n", date1->day, date1->month, date1->year, date2->day, date2->month, date2->year);

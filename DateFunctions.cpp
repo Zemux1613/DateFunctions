@@ -1,5 +1,7 @@
 #include "DateFunctions.h";
 #include <stdio.h>
+#include <Math.h>
+#include <string>
 
 bool isLeapYear(Date* date) {
 
@@ -79,11 +81,11 @@ bool isEarlierThan(Date* earlier, Date* later) {
 
 Date* inputDate() {
     int day, month, year;
-    printf("Input a day number for date1: ");
+    printf("Input a day number for date: ");
     scanf_s("%d", &day);
-    printf("Input a month number for date1: ");
+    printf("Input a month number for date: ");
     scanf_s("%d", &month);
-    printf("Input a year number for date1: ");
+    printf("Input a year number for date: ");
     scanf_s("%d", &year);
 
     Date* date = new Date();
@@ -185,6 +187,65 @@ Date* beforeAfterDays(Date* date, int days) {
 
         }
 
+    }
+
+}
+
+int getJulianMonthNumber(Date* date) {
+
+    int ret = 0;
+
+    if (date->month > 2) {
+
+        ret = date->month - 2;
+
+    } else {
+
+        if (date->month == 2) {
+            return 12;
+        }
+
+        if (date->month == 1) {
+            return 11;
+        }
+
+        date->year = date->year - 1;
+
+    }
+
+    return ret;
+
+}
+
+const char* getWeekDay(Date* date) {
+
+    // https://de.wikipedia.org/wiki/Wochentagsberechnung#Formel
+    
+    int d = date->day;
+    int m = getJulianMonthNumber(date);
+    int y = date->year % 100; 
+    int c = date->year / 100;
+
+    int dayIndex = (int)( d + floor(2.6 * m - 0.2) + y + floor( (y / 4) ) + floor(c / 4) - (2 * c) ) % 7;
+
+    switch (dayIndex) {
+    case 0:
+        return "Sonntag";
+    case 1:
+        return "Montag";
+    case 2:
+        return "Dienstag";
+    case 3:
+        return "Mittwoch";
+    case 4:
+        return "Donnerstag";
+    case 5:
+        return "Freitag";
+    case 6:
+        return "Samstag";
+
+    default:
+        return "not found";
     }
 
 }
