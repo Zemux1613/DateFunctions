@@ -6,3 +6,5 @@ struct Date {
 };
 
 bool isLeapYear(Date* date);
+bool isValidDate(Date* date);
+int monthLength(Date* date);
