@@ -3,35 +3,23 @@
 
 int main() {
 
-    int day, month, year;
-    printf("Input a day number for date1: ");
-    scanf_s("%d", &day);
-    printf("Input a month number for date1: ");
-    scanf_s("%d", &month);
-    printf("Input a year number for date1: ");
-    scanf_s("%d", &year);
+    Date* date1 = inputDate();
 
-    Date* date = new Date();
+    if (isValidDate(date1)) {
 
-    date->day = day;
-    date->month = month;
-    date->year = year;
-
-    if (isValidDate(date)) {
-
-        if (isLeapYear(date)) {
-            printf("%d.%d.%d is a leap year!\n", date->day, date->month, date->year);
+        if (isLeapYear(date1)) {
+            printf("%d.%d.%d is a leap year!\n", date1->day, date1->month, date1->year);
         }
         else {
-            printf("%d.%d.%d isn't a leap year!\n", date->day, date->month, date->year);
+            printf("%d.%d.%d isn't a leap year!\n", date1->day, date1->month, date1->year);
         }
 
     }
     else {
-        printf("%d.%d.%d isn't a a valid gregoria date!\n", date->day, date->month, date->year);
+        printf("%d.%d.%d isn't a a valid gregoria date!\n", date1->day, date1->month, date1->year);
     }
 
-    delete date;
+    delete date1;
 
     return 0;
 }

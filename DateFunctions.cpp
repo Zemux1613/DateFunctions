@@ -1,4 +1,5 @@
 #include "DateFunctions.h";
+#include <stdio.h>
 
 bool isLeapYear(Date* date) {
 
@@ -74,4 +75,22 @@ bool isEarlierThan(Date* date1, Date* date2) {
     }
 
     return ret;
+}
+
+Date* inputDate() {
+    int day, month, year;
+    printf("Input a day number for date1: ");
+    scanf_s("%d", &day);
+    printf("Input a month number for date1: ");
+    scanf_s("%d", &month);
+    printf("Input a year number for date1: ");
+    scanf_s("%d", &year);
+
+    Date* date = new Date();
+
+    date->day = day;
+    date->month = month;
+    date->year = year;
+
+    return date;
 }
