@@ -217,35 +217,38 @@ int getJulianMonthNumber(Date* date) {
 
 }
 
-const char* getWeekDay(Date* date) {
+int getWeekDayIndex(Date* date) {
 
     // https://de.wikipedia.org/wiki/Wochentagsberechnung#Formel
-    
+
     int d = date->day;
     int m = getJulianMonthNumber(date);
-    int y = date->year % 100; 
+    int y = date->year % 100;
     int c = date->year / 100;
 
-    int dayIndex = (int)( d + floor(2.6 * m - 0.2) + y + floor( (y / 4) ) + floor(c / 4) - (2 * c) ) % 7;
+    int dayIndex = (int)(d + floor(2.6 * m - 0.2) + y + floor((y / 4)) + floor(c / 4) - (2 * c)) % 7;
 
-    switch (dayIndex) {
+}
+
+const char* getWeekDay(Date* date) {
+    switch (getWeekDayIndex(date)) {
     case 0:
-        return "Sonntag";
+
+        return "Sunday";
     case 1:
-        return "Montag";
+        return "Monday";
     case 2:
-        return "Dienstag";
+        return "Tuesday";
     case 3:
-        return "Mittwoch";
+        return "Wednesday";
     case 4:
-        return "Donnerstag";
+        return "Thursday";
     case 5:
-        return "Freitag";
+        return "Friday";
     case 6:
-        return "Samstag";
+        return "Saturday";
 
     default:
         return "not found";
     }
-
 }
