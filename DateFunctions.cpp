@@ -95,7 +95,7 @@ Date* inputDate() {
     return date;
 }
 
-int dataToDayZero(Date* date) {
+int dateToDayZero(Date* date) {
 
     int year = date->year;
 
@@ -108,5 +108,14 @@ int dataToDayZero(Date* date) {
     }
 
     return days;
+
+}
+
+int dateDifference(Date* later, Date* earlier) {
+
+    int dayLater = dateToDayZero(later);
+    int dayEarlier = dateToDayZero(earlier);
+
+    return dayLater - dayEarlier;
 
 }
