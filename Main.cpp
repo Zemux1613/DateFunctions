@@ -3,11 +3,19 @@
 
 int main() {
 
+    int day, month, year;
+    printf("Input a day number: ");
+    scanf_s("%d", &day);
+    printf("Input a month number: ");
+    scanf_s("%d", &month);
+    printf("Input a year number: ");
+    scanf_s("%d", &year);
+
     Date* date = new Date();
 
-    date->day = 28;
-    date->month = 2;
-    date->year = 4567;
+    date->day = day;
+    date->month = month;
+    date->year = year;
 
     if (isValidDate(date)) {
 
