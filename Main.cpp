@@ -25,6 +25,18 @@ int main() {
         printf("Days to date 1.1.0000 -> %d\n", dateToDayZero(date1));
         printf("Days to date 1.1.0000 -> %d\n", dateToDayZero(date2));
 
+        int days;
+
+        printf("Type a number of days that should be add / remove from %d.%d.%d: \n", date1->day, date1->month, date1->year);
+        scanf_s("%d", &days);
+
+        beforeAfterDays(date1, days);
+
+        printf("%d.%d.%d the date before %d %s!\n", date1->day, date1->month, date1->year, days, (days != 1 ? "days" : "day"));
+
+        dateAfterDays(date1, days);
+
+        printf("%d.%d.%d the date after %d %s!\n", date1->day, date1->month, date1->year, days, (days != 1 ? "days" : "day"));
 
         if(isEarlierThan(date1, date2)){
 

@@ -119,3 +119,72 @@ int dateDifference(Date* later, Date* earlier) {
     return dayLater - dayEarlier;
 
 }
+
+Date* dateAfterDays(Date* date, int days) {
+
+    if (days >= 0) {
+
+        if (days == 0) return date;
+
+        if (date->day + days <= monthLength(date)) {
+            date->day += days;
+            return date;
+        }
+        else {
+
+            while (days > 0) {
+
+                days--;
+                date->day = date->day + 1;
+                if (date->day > monthLength(date)) {
+                    date->day = 1;
+                    date->month = date->month + 1;
+                }
+
+                if (date->month > 12) {
+                    date->month = 1;
+                    date->year = date->year + 1;
+                }
+
+            }
+            return date;
+
+        }
+
+    }
+
+}
+
+Date* beforeAfterDays(Date* date, int days) {
+    
+    if (days >= 0) {
+
+        if (days == 0) return date;
+
+        if (date->day - days >= 1) {
+            date->day -= days;
+            return date;
+        }
+        else {
+
+            while (days > 0) {
+
+                days--;
+                date->day = date->day - 1;
+                if (date->day < 1) {
+                    date->month = date->month - 1;
+                    if (date->month < 1) {
+                        date->month = 12;
+                        date->year = date->year - 1;
+                    }
+                    date->day = monthLength(date);
+                }
+
+            }
+            return date;
+
+        }
+
+    }
+
+}
