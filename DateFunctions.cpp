@@ -227,7 +227,7 @@ int getWeekDayIndex(Date* date) {
     int c = date->year / 100;
 
     int dayIndex = (int)(d + floor(2.6 * m - 0.2) + y + floor((y / 4)) + floor(c / 4) - (2 * c)) % 7;
-
+    return dayIndex;
 }
 
 const char* getWeekDay(Date* date) {
